@@ -1,14 +1,17 @@
 package org.bu.spring.cloud;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
+@EnableEurekaServer
 @SpringBootApplication
-@ServletComponentScan
 public class BuCloudApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BuCloudApplication.class, args);
-	}
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(BuCloudApplication.class).web(true).run(args);
+    }
+
 }
+
